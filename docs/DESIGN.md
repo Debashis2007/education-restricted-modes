@@ -1,7 +1,7 @@
 # Design: Education Restricted Modes
 
 **Project:** `education-restricted-modes`  
-**Parent system design:** [06 — Multi-Layer Safety / Moderation](../06-safety-moderation-pipeline.md) · [07 — Agent Runtime with Hard Containment](../07-agent-runtime-containment.md)
+**Parent system design:** [06 — Multi-Layer Safety / Moderation](https://github.com/Debashis2007/education-restricted-modes/blob/main/06-safety-moderation-pipeline.md) · [07 — Agent Runtime with Hard Containment](https://github.com/Debashis2007/education-restricted-modes/blob/main/07-agent-runtime-containment.md)
 
 ## 1. What this POC demonstrates
 
