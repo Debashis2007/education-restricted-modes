@@ -1,5 +1,7 @@
 # Use Case: Education / Restricted Modes
 
+**YouTube walkthrough:** [Education Restricted Modes — System Design #Shorts](https://youtu.be/BOjgD6GmfGU)
+
 **Design doc:** [docs/DESIGN.md](./docs/DESIGN.md) — architecture, patterns, and why.
 
 
@@ -46,6 +48,9 @@ User profile (education/family) → restricted policy pack
 
 
 ## Design walkthrough (opens on GitHub)
+
+> **Watch on YouTube:** [Education Restricted Modes — System Design #Shorts](https://youtu.be/BOjgD6GmfGU)
+
 
 ![Design overview](docs/video/design-overview.gif)
 
