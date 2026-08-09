@@ -1,0 +1,37 @@
+"""Education Restricted Modes — thin self-contained FastAPI POC."""
+
+from __future__ import annotations
+
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException, Request
+from pydantic import BaseModel, Field
+
+from poc_core import MockLLM, TokenBucket, health_payload
+from poc_core.safety import SafetyPlane
+from poc_core.stores import InMemoryStore, MockVectorIndex
+
+USE_CASE = "Education Restricted Modes"
+app = FastAPI(title=USE_CASE)
+llm = MockLLM()
+store = InMemoryStore()
+safety = SafetyPlane()
+
+@app.get("/health")
+def health():
+    return health_payload(USE_CASE)
+
+
+class ChatIn(BaseModel):
+    profile: str = "education"
+    prompt: str
+
+@app.post("/chat")
+async def chat(body: ChatIn):
+    tools_allowed = [] if body.profile in {"education", "family"} else ["code", "browser"]
+    d = safety.check_input(body.prompt)
+    if "code" in body.prompt.lower() and "code" not in tools_allowed:
+        return {"action": "refuse", "reason_code": "tool_disabled_in_restricted_mode", "tools_allowed": tools_allowed}
+    if d.action != "allow":
+        return {"action": d.action, "reason_code": d.reason_code}
+    return {"action": "allow", "text": await llm.complete(body.prompt, max_tokens=10), "tools_allowed": tools_allowed}
