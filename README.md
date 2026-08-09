@@ -7,7 +7,7 @@
 **Design doc:** [docs/DESIGN.md](./docs/DESIGN.md) — architecture, patterns, and why.
 
 
-**Parent system design:** [06 — Multi-Layer Safety / Moderation](../06-safety-moderation-pipeline.md)
+**Parent system design:** [06 — Multi-Layer Safety / Moderation](./06-safety-moderation-pipeline.md)
 
 ## Users & problem
 
@@ -27,7 +27,7 @@ Schools and family products need a stricter mode: more fail-closed categories, t
 ```
 User profile (education/family) → restricted policy pack
   → stricter L1/L2 thresholds
-  → tool allowlist reduced ([07](../07-agent-runtime-containment.md))
+  → tool allowlist reduced ([07](./07-agent-runtime-containment.md))
   → extra audit to school admin (policy-permitting)
 ```
 
